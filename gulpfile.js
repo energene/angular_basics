@@ -9,13 +9,12 @@ gulp.task('lint:backend', () => {
 });
 
 gulp.task('lint:client', () => {
-  gulp.src('./app/index.html')
-  .pipe(eslint())
-  .pipe(eslint.format());
+  gulp.src('./**/*.html')
+    .pipe(eslint());
 });
 
 gulp.task('webpack:dev', () => {
-  gulp.src('./app/js/entry.js')
+  gulp.src('app/js/entry.js')
   .pipe(webpack({
     devtool: 'source-map',
     module: {
@@ -31,7 +30,7 @@ gulp.task('webpack:dev', () => {
 });
 
 gulp.task('static:dev', () => {
-  gulp.src('./app/**/*.html')
+  gulp.src('app/**/*.html')
   .pipe(gulp.dest('./build'));
 });
 
